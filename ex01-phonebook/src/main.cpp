@@ -106,10 +106,10 @@ int main()
     PhoneBook pb;
     std::string cmd;
 
-    std::cout << "---------------------------------------------\n";
-    std::cout << "|                 PhoneBook                  |\n";
-    std::cout << "|          ADD     SEARCH     EXIT           |\n";
-    std::cout << "---------------------------------------------\n";
+    std::cout << " ---------------------------------------------\n";
+    std::cout << "|                 PhoneBook                   |\n";
+    std::cout << "|          ADD     SEARCH     EXIT            |\n";
+    std::cout << " ---------------------------------------------\n";
     while (true)
     {
         std::cout << "-> ";

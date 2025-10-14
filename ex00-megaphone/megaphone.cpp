@@ -6,7 +6,7 @@
 /*   By: dimendon <dimendon@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 12:22:36 by dimendon          #+#    #+#             */
-/*   Updated: 2025/10/14 12:22:39 by dimendon         ###   ########.fr       */
+/*   Updated: 2025/10/14 17:50:15 by dimendon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,7 @@ int main(int argc, char **argv)
 
             j++;
         }
-
-        if (i++ < argc - 1)
-            std::cout << " ";
+        i++;
     }
     
     std::cout << std::endl;

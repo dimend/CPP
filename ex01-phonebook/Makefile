@@ -1,20 +1,19 @@
-# Compiler
 CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++17
+CXXFLAGS = -Wall -Wextra -Werror -std=c++17 -Iincludes
 
 TARGET = phonebook
 
-SRC = main.cpp Contact.cpp PhoneBook.cpp
+SRC = src/main.cpp src/Contact.cpp src/PhoneBook.cpp
 OBJDIR = obj
-OBJ = $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRC))
+OBJ = $(patsubst src/%.cpp,$(OBJDIR)/%.o,$(SRC))
 
-.PHONY: all clean
+.PHONY: all clean fclean re
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(OBJDIR)/%.o: %.cpp | $(OBJDIR)
+$(OBJDIR)/%.o: src/%.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJDIR):
@@ -25,3 +24,6 @@ clean:
 
 fclean: clean
 	rm -f $(TARGET)
+
+re: fclean all
+
