@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dimendon <dimendon@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/24 11:25:35 by dimendon          #+#    #+#             */
+/*   Updated: 2025/11/24 12:02:15 by dimendon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
@@ -24,7 +36,7 @@ int PhoneBook::size() const
     return currentSize_;
 }
 
-std::string PhoneBook::fmt10(const std::string &s)
+std::string PhoneBook::max10(const std::string &s)
 {
     if (s.size() <= 10)
     {
@@ -45,10 +57,10 @@ void PhoneBook::list() const
     for (int i = 0; i < currentSize_; ++i)
     {
         const Contact& c = contacts_[i];
-        std::cout << "|" << std::setw(10) << i
-                  << "|" << fmt10(c.getFirstName())
-                  << "|" << fmt10(c.getLastName())
-                  << "|" << fmt10(c.getNickname())
+        std::cout << "|" << max10(std::to_string(i))
+                  << "|" << max10(c.getFirstName())
+                  << "|" << max10(c.getLastName())
+                  << "|" << max10(c.getNickname())
                   << "|\n";
     }
     std::cout << "---------------------------------------------\n";
