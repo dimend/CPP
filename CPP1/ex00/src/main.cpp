@@ -2,15 +2,19 @@
 
 int main()
 {
-    //stack manual, delete end of execution
-    Zombie z("Frank");
-    z.announce();
+    Zombie *z = nullptr;
 
-    //stack announce and destroy immediately
-    randomChump("Chump");
-
-    //heap zombie
-    Zombie* h = newZombie("Heap");
-    h->announce();
-    delete h;
+	try
+	{
+		z = newZombie("Alloced Zombie");
+		z->announce();
+		delete z;
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Memory allocation failed\n";
+		return (1);
+	}
+	randomChump("Stacked Zombie");
+	return (0);
 }

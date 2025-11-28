@@ -1,13 +1,33 @@
 #include "Zombie.hpp"
+#include <string>
 
-int main()
+int main(int argc, char **argv)
 {
-    int n = 5;
+    Zombie *horde = nullptr;
 
-    Zombie *horde = zombieHorde(n, "Zombie");
+    if (argc < 2)
+        return 1;
 
-    for (int i = 0; i < n; ++i)
-        horde[i].announce();
-    
-    delete[] horde;
+    try 
+    {
+        int n = std::stoi(argv[1]);
+
+        if(n > 0)
+        {
+            horde = zombieHorde(n, "Zombie");
+
+            for (int i = 0; i < n; ++i)
+                horde[i].announce();
+            
+            delete[] horde;
+        }
+    } 
+    catch (const std::exception& e)
+    {
+        std::cerr << "Invalid number / Alloc failed .\n";
+        delete[] horde;
+        return 1;
+    }
+
+    return 0;
 }

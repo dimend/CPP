@@ -1,7 +1,8 @@
 #ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-#include <string>
+# include <string>
+# include <iostream>
 
 class Zombie
 {
@@ -15,7 +16,7 @@ private:
     std::string name_;
 };
 
-Zombie* newZombie(const std::string name);                     //heap, have to delete manually
+Zombie  *newZombie(const std::string name);                     //heap, have to delete manually
 void    randomChump(std::string name);
 
 #endif
