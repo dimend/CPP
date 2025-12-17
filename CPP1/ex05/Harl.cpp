@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dimendon <dimendon@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/05 11:33:23 by dimendon          #+#    #+#             */
+/*   Updated: 2025/12/05 11:33:24 by dimendon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 Harl :: Harl( void)
@@ -36,7 +48,7 @@ void Harl :: error( void )
 
 void Harl :: complain ( std::string level )
 {
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; ++i)
     {
         if (levels[i] == level)
         {   

@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dimendon <dimendon@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 11:33:54 by dimendon          #+#    #+#             */
-/*   Updated: 2025/12/05 11:33:55 by dimendon         ###   ########.fr       */
+/*   Created: 2025/12/05 10:47:12 by dimendon          #+#    #+#             */
+/*   Updated: 2025/12/17 14:43:57 by dimendon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#include "Fixed.hpp"
 
-# include <string>
-
-class Weapon
+Fixed::Fixed()													// 1. Default constructor
 {
-public:
-    Weapon(const std::string &type);
-    ~Weapon();
+	
+}
 
-    const std::string &getType() const;
-    void setType(const std::string &type);
+Fixed::Fixed(const Fixed& other)								// 2. Copy constructor
+{
+	
+}
 
-private:
-    std::string type_;
-};
+Fixed &Fixed::operator=(const Fixed &other)						// 3. Copy assignment operator
+{
+	
+}
 
-#endif
+Fixed::~Fixed()      											// 4. Destructor
+{
+	
+}
+
+int Fixed::getRawBits(void) const
+{
+
+}
+
+void Fixed::setRawBits(int const raw)
+{
+
+}

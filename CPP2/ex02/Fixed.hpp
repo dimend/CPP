@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dimendon <dimendon@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 11:33:51 by dimendon          #+#    #+#             */
-/*   Updated: 2025/12/05 11:33:52 by dimendon         ###   ########.fr       */
+/*   Created: 2025/12/05 10:46:52 by dimendon          #+#    #+#             */
+/*   Updated: 2025/12/17 14:44:22 by dimendon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-# include "Weapon.hpp"
 # include <iostream>
 
-class HumanB
+class Fixed
 {
-public:
-    HumanB(const std::string &name);
-    ~HumanB();
+    public:
+        Fixed();                                // 1. Default constructor
+        Fixed(const Fixed& other);              // 2. Copy constructor
+        Fixed& operator=(const Fixed& other);   // 3. Copy assignment operator
+        ~Fixed();                               // 4. Destructor
 
-    void attack() const;
-    void setWeapon(Weapon &newWeapon);
-
-private:
-    std::string name_;
-    Weapon *weapon_;
+    int  getRawBits(void) const;
+    void setRawBits(int const raw);
 };
 
 #endif
