@@ -6,7 +6,7 @@
 /*   By: dimendon <dimendon@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 10:47:12 by dimendon          #+#    #+#             */
-/*   Updated: 2025/12/19 15:25:53 by dimendon         ###   ########.fr       */
+/*   Updated: 2025/12/19 16:32:59 by dimendon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void Fixed::setRawBits(int const raw)
 
 Fixed::Fixed(const int value)
 {
+	std::cout << "Int constructor called" << std::endl;
 	if (value > (INT_MAX >> _fractional_bits) || value < (INT_MIN >> _fractional_bits))
 	{
 		std::cerr << "Error: value is out of range" << std::endl;
