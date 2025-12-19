@@ -1,7 +1,7 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++17 -I
+CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 
-TARGET = fixed
+TARGET = fixedpoint2
 
 SRC = main.cpp fixed.cpp
 OBJDIR = obj
