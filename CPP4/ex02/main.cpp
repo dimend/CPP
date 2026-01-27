@@ -5,6 +5,9 @@
 
 int main()
 {
+    std::cout << "\n========== ABSTRACT CLASS CHECK ==========\n";
+    // Animal a; // ❌ should NOT compile (leave commented)
+
     std::cout << "\n========== POLYMORPHISM TEST ==========\n";
 
     const Animal* dog = new Dog();
