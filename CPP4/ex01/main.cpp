@@ -41,14 +41,11 @@ int main()
 
     Dog original;
     original.getBrain()->ideas[0] = "I want a bone";
-
     Dog copy(original);
     copy.getBrain()->ideas[0] = "I want a steak";
 
-    std::cout << "Original idea: "
-              << original.getBrain()->ideas[0] << std::endl;
-    std::cout << "Copy idea: "
-              << copy.getBrain()->ideas[0] << std::endl;
+    std::cout << "Original idea: " << original.getBrain()->ideas[0] << std::endl;
+    std::cout << "Copy idea: " << copy.getBrain()->ideas[0] << std::endl;
 
     std::cout << "\n========== DEEP COPY TEST (CAT) ==========\n";
 
@@ -58,10 +55,8 @@ int main()
     Cat cat2 = cat1;
     cat2.getBrain()->ideas[0] = "I want to eat";
 
-    std::cout << "Cat1 idea: "
-              << cat1.getBrain()->ideas[0] << std::endl;
-    std::cout << "Cat2 idea: "
-              << cat2.getBrain()->ideas[0] << std::endl;
+    std::cout << "Cat1 idea: " << cat1.getBrain()->ideas[0] << std::endl;
+    std::cout << "Cat2 idea: " << cat2.getBrain()->ideas[0] << std::endl;
 
     std::cout << "\n========== END OF MAIN ==========\n";
     return 0;
