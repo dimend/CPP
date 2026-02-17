@@ -1,19 +1,21 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 
-TARGET = bureaucrat
+TARGET = Bureaucrat
 
 SRC = main.cpp Bureaucrat.cpp
+
 OBJDIR = obj
-OBJ = $(patsubst src/%.cpp,$(OBJDIR)/%.o,$(SRC))
+OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
 .PHONY: all clean fclean re
+
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(OBJDIR)/%.o: src/%.cpp | $(OBJDIR)
+$(OBJDIR)/%.o: %.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJDIR):
