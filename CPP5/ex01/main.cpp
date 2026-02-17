@@ -1,94 +1,93 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 int main()
 {
-    std::cout << "===== BASIC CONSTRUCTION =====\n";
+    std::cout << "===== VALID FORM CREATION =====\n";
     try
     {
-        Bureaucrat a("Alice", 2);
-        Bureaucrat b("Bob", 149);
-
-        std::cout << a << std::endl;
-        std::cout << b << std::endl;
+        Form tax("Tax Form", 50, 25);
+        std::cout << tax << std::endl;
     }
     catch (const std::exception& e)
     {
-        std::cout << "Exception: " << e.what() << std::endl;
+        std::cout << "Unexpected exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n===== INVALID CONSTRUCTION =====\n";
+    std::cout << "\n===== INVALID FORM CREATION =====\n";
     try
     {
-        Bureaucrat bad("Bad", 0);
-        std::cout << bad << std::endl;
+        Form bad1("Bad High", 0, 25);
+        std::cout << bad1 << std::endl;
     }
     catch (const std::exception& e)
     {
         std::cout << "Caught (expected): " << e.what() << std::endl;
     }
 
-    std::cout << "\n===== INCREASE / DECREASE NORMAL =====\n";
     try
     {
-        Bureaucrat c("Charlie", 75);
-        std::cout << c << std::endl;
-        c.increaseGrade();
-        std::cout << c << std::endl;
-        c.decreaseGrade();
-        c.decreaseGrade();
-        std::cout << c << std::endl;
-    }
-    catch (const std::exception& e)
-    {
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
-
-    std::cout << "\n===== INCREASE OUT OF RANGE =====\n";
-    try
-    {
-        Bureaucrat top("Top", 1);
-        std::cout << top << std::endl;
-        top.increaseGrade();
-        std::cout << top << std::endl;
+        Form bad2("Bad Low", 50, 151);
+        std::cout << bad2 << std::endl;
     }
     catch (const std::exception& e)
     {
         std::cout << "Caught (expected): " << e.what() << std::endl;
     }
 
-    std::cout << "\n===== DECREASE OUT OF RANGE =====\n";
+    std::cout << "\n===== SUCCESSFUL SIGNING =====\n";
     try
     {
-        Bureaucrat bottom("Bottom", 150);
-        std::cout << bottom << std::endl;
-        bottom.decreaseGrade();
-        std::cout << bottom << std::endl;
+        Bureaucrat boss("Boss", 40);
+        Form permit("Work Permit", 50, 25);
+
+        std::cout << boss << std::endl;
+        std::cout << permit << std::endl;
+
+        boss.signForm(permit);
+
+        std::cout << "After signing:\n";
+        std::cout << permit << std::endl;
     }
     catch (const std::exception& e)
     {
-        std::cout << "Caught (expected): " << e.what() << std::endl;
+        std::cout << "Unexpected exception: " << e.what() << std::endl;
     }
 
-    std::cout << "\n===== COPY & ASSIGNMENT =====\n";
+    std::cout << "\n===== FAILED SIGNING (GRADE TOO LOW) =====\n";
     try
     {
-        Bureaucrat original("Original", 42);
-        Bureaucrat copy(original);
-        Bureaucrat assigned("Assigned", 100);
+        Bureaucrat intern("Intern", 120);
+        Form secret("Top Secret", 50, 10);
 
-        std::cout << "Original: " << original << std::endl;
-        std::cout << "Copy:     " << copy << std::endl;
+        std::cout << intern << std::endl;
+        std::cout << secret << std::endl;
 
-        std::cout << "Assigning (assigned = original)\n";
-        assigned = original;
+        intern.signForm(secret);
 
-        std::cout << "Original: " << original << std::endl;
-        std::cout << "Assigned: " << assigned << std::endl;
+        std::cout << "After attempt:\n";
+        std::cout << secret << std::endl;
     }
     catch (const std::exception& e)
     {
-        std::cout << "Exception: " << e.what() << std::endl;
+        std::cout << "Unexpected exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "\n===== SIGN TWICE TEST =====\n";
+    try
+    {
+        Bureaucrat chief("Chief", 1);
+        Form form("Double Sign", 10, 10);
+
+        chief.signForm(form);
+        chief.signForm(form);
+
+        std::cout << form << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cout << "Unexpected exception: " << e.what() << std::endl;
     }
 
     std::cout << "\n===== DONE =====\n";

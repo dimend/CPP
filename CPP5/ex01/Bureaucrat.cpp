@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 static void validateGrade(int grade)
 {
@@ -74,4 +75,25 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {
     os << b.getName() << ", bureaucrat grade " << b.getGrade();
     return os;
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->getName()
+                  << " signed "
+                  << form.getName()
+                  << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cout << this->getName()
+                  << " couldn’t sign "
+                  << form.getName()
+                  << " because "
+                  << e.what()
+                  << std::endl;
+    }
 }
